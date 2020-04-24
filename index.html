@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Extra Credit Construction Site </title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<h1 id="Heading">Construction Site </h1>
+<div id="app">
+  <div v-on:click="ifAllCodes" v-bind:class="nameClass">
+    <ul v-for="name in names">
+      <div v-if="name.ifshow">
+        <div v-on:click="name.ifshow=!name.ifshow; ifAllCodes();" v-show="name.ifshow">{{name.realname}}</div>
+      </div>
+      <div>
+        <div v-on:click="name.ifshow=!name.ifshow; ifAllCodes(); " v-show="!name.ifshow">{{name.codename}}</div>
+      </div>
+    </ul>
+  </div>
+  <div v-on:click="check" v-bind:class="likeClass">
+    <likebtn v-for="item in likesArr" v-bind:likesinit="item.likes" v-on:likesinc="temp+=1"></likebtn><br> 
+    <div class = "divstyle">Likes: {{temp}}</div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
